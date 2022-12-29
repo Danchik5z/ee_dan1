@@ -1,9 +1,10 @@
 package entity;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.sql.Date;
+import java.util.List;
 
-public class Exhibition {
+public class Exhibition extends MyEntity{
 
     private int id;
     private Date startDate;
@@ -17,6 +18,16 @@ public class Exhibition {
     private String city;
 
     private String venue;
+
+    private List<Exhibit> exhibitList;
+
+    public List<Exhibit> getExhibitList() {
+        return exhibitList;
+    }
+
+    public void setExhibitList(List<Exhibit> exhibitList) {
+        this.exhibitList = exhibitList;
+    }
 
     public Exhibition(int id, Date startDate, Date endDate,
                       String name, String country, String city, String venue) {

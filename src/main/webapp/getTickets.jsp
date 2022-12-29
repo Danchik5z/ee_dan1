@@ -1,5 +1,6 @@
 <%@ page import="entity.Client" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="entity.Ticket" %><%--
   Created by IntelliJ IDEA.
   User: Даня
   Date: 27.12.2022
@@ -9,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+  <title>Title</title>
 </head>
 <body>
 <h>Create</h>
@@ -54,18 +55,23 @@
   <thead>
   <tr>
     <td>id</td>
-    <td>fio</td>
-    <td>email</td>
-    <td>group_id</td>
+    <td>client_id</td>
+    <td>hall_id</td>
+    <td>start</td>
+    <td>price</td>
+    <td>hour</td>
   </tr>
   </thead>
   <tbody>
-  <% List<Client> clients = (List<Client>) request.getAttribute("clients"); %>
-  <% for (Client client : clients) {%>
+  <% List<Ticket> clients = (List<Ticket>) request.getAttribute("tickets"); %>
+  <% for (Ticket client : clients) {%>
   <tr>
     <td><%= client.getID() %></td>
-    <td><%= client.getFullName() %></td>
-    <td><%= client.getEmail()%></td>
+    <td><%= client.getClientID() %></td>
+    <td><%= client.getHallID()%></td>
+    <td><%= client.getStartDate()%></td>
+    <td><%= client.getPrice()%></td>
+    <td><%= client.getHour()%></td>
   </tr>
   <% } %>
   </tbody>

@@ -3,7 +3,7 @@ package entity;
 import java.time.LocalDate;
 import java.util.Date;
 
-public class Ticket {
+public class Ticket extends MyEntity{
 
     private int ID;
 

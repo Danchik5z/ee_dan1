@@ -10,6 +10,76 @@
 
     <servlet-mapping>
         <servlet-name>ClientServlet</servlet-name>
-        <url-pattern>/ClientClient</url-pattern>
+        <url-pattern>/clientclient</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>clientCUD</servlet-name>
+        <servlet-class>servlet.ClientCUD</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>clientCUD</servlet-name>
+        <url-pattern>/client_crud</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>exhibitionServlet</servlet-name>
+        <servlet-class>servlet.ExhibitionServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>exhibitionServlet</servlet-name>
+        <url-pattern>/exhibition</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>exhibitionCud</servlet-name>
+        <servlet-class>servlet.ExhibitionCUD</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>exhibitionCud</servlet-name>
+        <url-pattern>/exhibition_crud</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>exhibitServlet</servlet-name>
+        <servlet-class>servlet.ExhibitServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>exhibitServlet</servlet-name>
+        <url-pattern>/exhibit</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>exhibitCud</servlet-name>
+        <servlet-class>servlet.ExhibitCUD</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>exhibitCud</servlet-name>
+        <url-pattern>/exhibit_crud</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TicketServlet</servlet-name>
+        <servlet-class>servlet.TicketServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>TicketServlet</servlet-name>
+        <url-pattern>/ticket</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HallServlet</servlet-name>
+        <servlet-class>servlet.HallsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HallServlet</servlet-name>
+        <url-pattern>/hall</url-pattern>
     </servlet-mapping>
 </web-app>

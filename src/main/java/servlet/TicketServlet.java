@@ -1,9 +1,8 @@
 package servlet;
 
-
-
 import entity.Client;
 import entity.MyEntity;
+import entity.Ticket;
 import service.DBService;
 
 import javax.servlet.ServletException;
@@ -17,18 +16,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet
-public class ClientServlet extends HttpServlet {
+public class TicketServlet extends HttpServlet {
     DBService dbService = DBService.getInstance();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         try {
-            List<MyEntity> list = dbService.getall("client");
-            List<Client> clients = new ArrayList<>();
+            List<MyEntity> list = dbService.getall("ticket");
+            List<Ticket> clients = new ArrayList<>();
             for(MyEntity entity: list){
-                clients.add((Client) entity);
+                clients.add((Ticket) entity);
             }
-            req.setAttribute("clients", clients);
-            req.getRequestDispatcher("/getClients.jsp").forward(req, resp);
+            req.setAttribute("tickets", clients);
+            req.getRequestDispatcher("/getTickets.jsp").forward(req, resp);
         } catch (SQLException | ServletException e) {
             throw new RuntimeException(e);
         }
@@ -37,10 +36,10 @@ public class ClientServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            List<Client> clients = new ArrayList<>();
-            clients.add((Client) dbService.find("client", Integer.parseInt(req.getParameter("find_id"))));
-            req.setAttribute("clients", clients);
-            req.getRequestDispatcher("/getClients.jsp").forward(req, resp);
+            List<Ticket> clients = new ArrayList<>();
+            clients.add((Ticket) dbService.find("ticket", Integer.parseInt(req.getParameter("find_id"))));
+            req.setAttribute("tickets", clients);
+            req.getRequestDispatcher("/getTickets.jsp").forward(req, resp);
         } catch (SQLException | ServletException e) {
             throw new RuntimeException(e);
         }

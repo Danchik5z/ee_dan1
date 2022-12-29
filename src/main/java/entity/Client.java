@@ -1,6 +1,6 @@
 package entity;
 
-public class Client {
+public class Client extends MyEntity{
 
     private final int ID;
 

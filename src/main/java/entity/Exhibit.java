@@ -1,8 +1,9 @@
 package entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
-public class Exhibit {
+public class Exhibit extends MyEntity{
 
     private final int ID;
 
@@ -15,6 +16,8 @@ public class Exhibit {
     private String description;
 
     private String author;
+
+    private List<Exhibition> exhibitionList;
 
     public Exhibit(int ID, int hallNumber, String name, int yearOfCreation, String description, String author) {
         this.ID = ID;
@@ -67,6 +70,14 @@ public class Exhibit {
 
     public void setHallNumber(int hallNumber) {
         this.hallNumber = hallNumber;
+    }
+
+    public List<Exhibition> getExhibitionList() {
+        return exhibitionList;
+    }
+
+    public void setExhibitionList(List<Exhibition> exhibitionList) {
+        this.exhibitionList = exhibitionList;
     }
 
     @Override

@@ -1,8 +1,7 @@
 package servlet;
 
-
-
 import entity.Client;
+import entity.Exhibit;
 import entity.MyEntity;
 import service.DBService;
 
@@ -17,18 +16,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet
-public class ClientServlet extends HttpServlet {
+public class ExhibitServlet extends HttpServlet {
     DBService dbService = DBService.getInstance();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         try {
-            List<MyEntity> list = dbService.getall("client");
-            List<Client> clients = new ArrayList<>();
+            List<MyEntity> list = dbService.getall("exhibit");
+            List<Exhibit> exhibits = new ArrayList<>();
             for(MyEntity entity: list){
-                clients.add((Client) entity);
+                exhibits.add((Exhibit) entity);
             }
-            req.setAttribute("clients", clients);
-            req.getRequestDispatcher("/getClients.jsp").forward(req, resp);
+            req.setAttribute("exhibits", exhibits);
+            req.getRequestDispatcher("/getExhibits.jsp").forward(req, resp);
         } catch (SQLException | ServletException e) {
             throw new RuntimeException(e);
         }
@@ -37,10 +36,10 @@ public class ClientServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            List<Client> clients = new ArrayList<>();
-            clients.add((Client) dbService.find("client", Integer.parseInt(req.getParameter("find_id"))));
-            req.setAttribute("clients", clients);
-            req.getRequestDispatcher("/getClients.jsp").forward(req, resp);
+            List<Exhibit> exhibits = new ArrayList<>();
+            exhibits.add((Exhibit) dbService.find("exhibit", Integer.parseInt(req.getParameter("find_id"))));
+            req.setAttribute("exhibits", exhibits);
+            req.getRequestDispatcher("/getExhibits.jsp").forward(req, resp);
         } catch (SQLException | ServletException e) {
             throw new RuntimeException(e);
         }
